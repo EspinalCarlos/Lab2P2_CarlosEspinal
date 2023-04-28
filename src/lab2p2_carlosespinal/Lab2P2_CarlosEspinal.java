@@ -255,16 +255,184 @@ public class Lab2P2_CarlosEspinal {
                                            System.out.println("Lista de pinturas");
                                            for (Pintura pintura : pinturas) {
                                                System.out.println(cont+"-\n"+pintura);
+                                               cont++;
                                            }
                                            System.out.println("Ingrese la pintura a modificar");
                                            int indmodp = read.nextInt();
+                                           System.out.println("");
+                                           modP();
+                                           int opcmodp = read.nextInt();
+                                           switch(opcmodp){
+                                               case 1:
+                                                   System.out.println("Ingrese el nuevo nombre: ");
+                                                   read.nextLine();
+                                                   String newnomp = read.nextLine();
+                                                   (pinturas.get(indmodp)).setNomPintura(newnomp);
+                                                   break;
+                                               case 2:
+                                                   System.out.println("Ingrese el nuevo nombre del autor ");
+                                                   read.nextLine();
+                                                   String newnompa = read.nextLine();
+                                                   (pinturas.get(indmodp)).setAutor(newnompa);
+                                                   break;
+                                               case 3:
+                                                   System.out.println("Ingrese la nueva fecha de presentacion");
+                                                   read.nextLine();
+                                                   String f5 = read.nextLine();
+                                                   String[] f5t = f5.split("/");
+                                                   (pinturas.get(indmodp)).setFpresentation(new Date(Integer.parseInt(f5t[2])-1900, Integer.parseInt(f5t[1])-1, Integer.parseInt(f5t[0])));
+                                                   
+                                                   
+                                                   break;
+                                               case 4:
+                                                   System.out.println("Ingrese la nueva fecha de adquisicion: ");
+                                                   read.nextLine();
+                                                   String f6 = read.nextLine();
+                                                   String[] f6t = f6.split("/");
+                                                   (pinturas.get(indmodp)).setFadquisition(new Date(Integer.parseInt(f6t[2])-1900, Integer.parseInt(f6t[1])-1, Integer.parseInt(f6t[0])));
+                                                   
+                                                   break;
+                                               case 5:
+                                                   System.out.println("Esta en exposicion? [S/N]: ");
+                                                   read.nextLine();
+                                                   char isexpomod = read.nextLine().charAt(0);
+                                                   if (isexpomod == 'S' || isexpomod == 's') {
+                                                       (pinturas.get(indmodp)).setIsExpuesta(true);
+                                                       
+                                                   } else{
+                                                       (pinturas.get(indmodp)).setIsExpuesta(false);
+                                                   }
+                                                   break;
+                                           }
                                            
                                            break;
                                        case 2:
+                                           int cont2 = 0;
+                                           System.out.println("Lista de esculturas");
+                                           for (Escultura escultura : esculturas) {
+                                               System.out.println(cont2 + "- " + escultura);
+                                           }
+                                           System.out.println("Que desea modificar?: ");
+                                           int indmode = read.nextInt();
+                                           
+                                           modE();
+                                           int opcemod = read.nextInt();
+                                           
+                                           switch(opcemod){
+                                               case 1:
+                                                   System.out.println("Ingrese el nombre de escultor: ");
+                                                   read.nextLine();
+                                                   String newnameesc = read.nextLine();
+                                                   
+                                                   (esculturas.get(indmode)).setEscultor(newnameesc);
+                                                   
+                                                   break;
+                                               case 2:
+                                                   System.out.println("Ingrese el material: ");
+                                                   read.nextLine();
+                                                   String newmat = read.nextLine();
+                                                   
+                                                   (esculturas.get(indmode)).setMaterial(newmat);
+                                                   
+                                                   
+                                                   
+                                                   break;
+                                               case 3:
+                                                   System.out.println("Ingrese fecha de esculpir: ");
+                                                   read.nextLine();
+                                                   String f7 = read.nextLine();
+                                                   String[] f7t = f7.split("/");
+                                                   (esculturas.get(indmode)).setDateEsculpir(new Date(Integer.parseInt(f7t[2])-1900, Integer.parseInt(f7t[1])-1, Integer.parseInt(f7t[0])));
+                                                   break;
+                                               case 4:
+                                                   System.out.println("Ingrese el departamento: ");
+                                                   read.nextLine();
+                                                   String newdep = read.nextLine();
+                                                   
+                                                   (esculturas.get(indmode)).setMaterial(newdep);
+                                                   
+                                                   break;
+                                           }
+                                           
                                            break;
                                        case 3:
+                                           int cont3 = 0;
+                                           System.out.println("Lista de Fotografias ");
+                                           for (Fotografia fotografia : fotografias) {
+                                               System.out.println(cont3+"- "+ fotografia);
+                                           }
+                                           System.out.println("Ingrese el indice de la foto: ");
+                                           int indmodf = read.nextInt();
+                                          
+                                           
+                                           modFotos();
+                                           System.out.println("Ingrese lo que desea modificar: ");
+                                           int opcfmod = read.nextInt();
+                                           read.nextLine();
+                                           
+                                           switch(opcfmod){
+                                               case 1:
+                                                   System.out.println("Ingrese la nueva dimension: ");
+                                                   String newdim = read.nextLine();
+                                                   (fotografias.get(indmodf)).setDimension(newdim);
+                                                   break;
+                                               case 2:
+                                                   System.out.println("Ingrese la nueva resolucion: ");
+                                                   String newres = read.nextLine();
+                                                   (fotografias.get(indmodf)).setResolucion(newres);
+                                                   break;
+                                               case 3:
+                                                   System.out.println("Ingrese si es a color: [S/N]");
+                                                   char newcolf = read.nextLine().charAt(0);
+                                                   if(newcolf == 'S' || newcolf == 's'){
+                                                        (fotografias.get(indmodf)).setIsBlackWhite(true);
+                                                   } else{
+                                                       (fotografias.get(indmodf)).setIsBlackWhite(false);
+                                                   }
+                                                   break;
+                                               
+                                           }
+                                           
                                            break;
                                        case 4:
+                                           int cont4 = 0;
+                                           System.out.println("Lista de escritos ");
+                                           for (Escritos escrito : escritos) {
+                                               System.out.println(cont4+"- "+escrito);
+                                           }
+                                           System.out.println("Ingrese cual desea modificar");
+                                           int indesc = read.nextInt();
+                                           
+                                           modEsc();
+                                           System.out.println("Ingrese el que desea mod: ");
+                                           int opcesc = read.nextInt();
+                                           
+                                           switch(opcesc){
+                                               case 1:
+                                                   System.out.println("Numero de palabras");
+                                                   int newtotpal = read.nextInt();
+                                                   (escritos.get(indesc)).setTotalPalabras(newtotpal);
+                                                   break;
+                                               case 2:
+                                                   System.out.println("Ingrese la epoca: ");
+                                                   read.nextLine();
+                                                   String newepoca = read.nextLine();
+                                                   (escritos.get(indesc)).setEpoca(newepoca);
+                                                   
+                                                   break;
+                                               case 3:
+                                                   System.out.println("Ingrese el genero: ");
+                                                   read.nextLine();
+                                                   String newgen = read.nextLine();
+                                                   (escritos.get(indesc)).setGenero(newgen);
+                                                   break;
+                                               case 4:
+                                                   System.out.println("Ingrese el autor nuevo: ");
+                                                   read.nextLine();
+                                                   String newautoresc = read.nextLine();
+                                                   (escritos.get(indesc)).setAutor(newautoresc);
+                                                   break;
+                                           }
                                            break;
                                    }
                                     
