@@ -3,7 +3,7 @@ package lab2p2_carlosespinal;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.util.Date;
 
 public class Lab2P2_CarlosEspinal {
     
@@ -30,6 +30,18 @@ public class Lab2P2_CarlosEspinal {
                            5. Cerrar Sesion
                            
                            """);
+        
+    }
+    public static void menuAdd(){
+        System.out.println("""
+                           --- Que tipo de pieza de arte desea agregar? ---
+                           
+                           1. Pinturas
+                           2. Esculturas
+                           3. Fotografias
+                           4. Escritos
+                           
+                           """);
     }
     
     public static void main(String[] args) {
@@ -46,6 +58,7 @@ public class Lab2P2_CarlosEspinal {
             switch (opclog) {
                 case 1:
                     boolean access = false ;
+                    boolean adm = false;
                     System.out.println("Ingrese su nombre de usuario: ");
                     read.nextLine();
                     String u = read.nextLine();
@@ -55,6 +68,9 @@ public class Lab2P2_CarlosEspinal {
                     for (Usuario user : registro) {
                         if (user.getUsername().equals(u) && user.getPassword().equals(p)) {
                             access = true;
+                            if (user.isAdminVer() == true) {
+                                adm = true;
+                            }
                         }
                     }
                     
@@ -65,6 +81,49 @@ public class Lab2P2_CarlosEspinal {
                             int opcmm = read.nextInt();
                             switch(opcmm){
                                 case 1:
+                                    if (adm == true) {
+                                        menuAdd();
+                                        int opcadd = read.nextInt();
+                                        switch(opcadd){
+                                            case 1:
+                                                System.out.println("Ingrese el nombre de la pintura: ");
+                                                read.nextLine();
+                                                String nomp = read.nextLine();
+                                                System.out.println("Ingrese el nombre del autor: ");
+                                                String noma = read.nextLine();
+                                                System.out.println("Ingrese la fecha de presentacion");
+                                                String f1 = read.nextLine();
+                                                String[]f1t = f1.split("/");
+                                                Date fecha1 = new Date(Integer.parseInt(f1t[2])-1900, Integer.parseInt(f1t[1])-1, Integer.parseInt(f1t[0]));
+                                                System.out.println("Ingrese la fecha de adquisicion: ");
+                                                String f2 = read.nextLine();
+                                                String[]f2t = f2.split("/");
+                                                Date fecha2 = new Date(Integer.parseInt(f2t[2])-1900, Integer.parseInt(f2t[1])-1, Integer.parseInt(f2t[0]));
+                                                System.out.println("Esta en exposicion?:[S/N] ");
+                                                boolean isexpo = false;
+                                                char expo = read.nextLine().charAt(0);
+                                                if (expo == 's' || expo == 'S') {
+                                                    isexpo = true; 
+                                                } else{
+                                                    isexpo = false;
+                                                }
+                                                
+                                                pinturas.add(new Pintura(nomp,noma,fecha1,fecha2,isexpo));
+                                                
+                                                
+                                                break;
+                                            case 2:
+                                                System.out.println("Ingrese el nombre del escultor: ");
+                                                
+                                                break;
+                                            case 3:
+                                                
+                                                break;
+                                            case 4:
+                                                
+                                                break;
+                                        }
+                                    }
                                     
                                     break;
                                 case 2:
@@ -93,9 +152,9 @@ public class Lab2P2_CarlosEspinal {
                     System.out.println("Ingrese la clave para su cuenta: ");
                     String clave = read.next();
                     System.out.println("Es este usuario parte de la administracion[S/N]: ");
-                    char adm = read.next().charAt(0);
+                    char admi = read.next().charAt(0);
                     
-                    if (adm == 's' && adm == 'S') {
+                    if (admi == 's' && admi == 'S') {
                         registro.add(new Usuario(us,clave,true));
                     } else{
                         registro.add(new Usuario(us,clave,true));

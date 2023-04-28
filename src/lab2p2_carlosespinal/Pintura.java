@@ -64,7 +64,7 @@ public class Pintura {
         if (isExpuesta == true) {
           return  "Pintura: " + nomPintura + "\nAutor: " + Autor + "\nFecha de Presentacion: " + fpresentation + "\nFecha de Adquisicion: " + fadquisition+"\nEn exposicion";  
         } else{
-            return  "Pintura: " + nomPintura + "\nAutor: " + Autor + "\nFecha de Presentacion: " + fpresentation + "\nFecha de Adquisicion: " + fadquisition+"\nAun no esta en exposicion";
+            return  "Pintura: " + nomPintura + "\nAutor: " + Autor + "\nFecha de Presentacion: " + fpresentation + "\nFecha de Adquisicion: " + fadquisition+"\nSe encuentra en bodega";
         }
     }
     
