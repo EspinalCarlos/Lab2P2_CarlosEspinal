@@ -75,9 +75,54 @@ public class Lab2P2_CarlosEspinal {
                            4. Escritos
                            
                            """);
+        
     }
     
-    
+    public static void modP(){
+        System.out.println("""
+                           --- Que desea modificar? ---
+                           
+                           1. Nombre Pintura
+                           2. Nombre Autor
+                           3. Fecha presentacion
+                           4. Fecha Adquisicion
+                           5. Estado de exposicion
+                           
+                           """);
+        
+    }
+    public static void modE(){
+        System.out.println("""
+                           --- Que desea modificar? ---
+                           
+                           1. Nombre Escultor
+                           2. Material
+                           3. Fecha en que se comenzo a esculpir
+                           4. Departamento del museo
+                           
+                           """);
+    }
+    public static void modFotos(){
+        System.out.println("""
+                           --- Que desea modificar? ---
+                           
+                           1. Dimensiones
+                           2. Resolucion
+                           3. Es a color o no
+                           
+                           """);
+    }
+    public static void modEsc(){
+        System.out.println("""
+                           --- Que desea modificar? ---
+                           
+                           1. Total palabras
+                           2. Epoca de escritura
+                           3. Genero Literario
+                           4. Autor
+                           
+                           """);
+    }
     
     public static void main(String[] args) {
         int o1 = 0;
@@ -202,7 +247,26 @@ public class Lab2P2_CarlosEspinal {
                                     
                                     break;
                                 case 2:
-                                    
+                                   menuMod();
+                                   int opcmod = read.nextInt();
+                                   switch(opcmod){
+                                       case 1:
+                                           int cont = 0;
+                                           System.out.println("Lista de pinturas");
+                                           for (Pintura pintura : pinturas) {
+                                               System.out.println(cont+"-\n"+pintura);
+                                           }
+                                           System.out.println("Ingrese la pintura a modificar");
+                                           int indmodp = read.nextInt();
+                                           
+                                           break;
+                                       case 2:
+                                           break;
+                                       case 3:
+                                           break;
+                                       case 4:
+                                           break;
+                                   }
                                     
                                     
                                     break;
