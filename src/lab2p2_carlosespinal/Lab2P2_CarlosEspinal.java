@@ -1,20 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package lab2p2_carlosespinal;
 
-/**
- *
- * @author cespi
- */
-public class Lab2P2_CarlosEspinal {
 
-    /**
-     * @param args the command line arguments
-     */
+public class Lab2P2_CarlosEspinal {
+    
+    public static void menuLogin(){
+        System.out.println("""
+                           --- MENU PRINCIPAL ---
+                           
+                           1. Iniciar Sesion 
+                           2. Crear nuevo usuario
+                           3. Salir del programa
+                           
+                           """);
+    }
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        menuLogin();
     }
     
 }
