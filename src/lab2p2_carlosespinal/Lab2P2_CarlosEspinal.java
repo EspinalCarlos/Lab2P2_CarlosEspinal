@@ -25,7 +25,7 @@ public class Lab2P2_CarlosEspinal {
                            
                            1. Crear una pieza de arte 
                            2. Modificar una pieza de arte
-                           3. Modificar una pieza de arte
+                           3. Listar una pieza de arte
                            4. Eliminar una pieza de arte
                            5. Cerrar Sesion
                            
@@ -35,6 +35,28 @@ public class Lab2P2_CarlosEspinal {
     public static void menuAdd(){
         System.out.println("""
                            --- Que tipo de pieza de arte desea agregar? ---
+                           
+                           1. Pinturas
+                           2. Esculturas
+                           3. Fotografias
+                           4. Escritos
+                           
+                           """);
+    }
+    public static void menuMod(){
+        System.out.println("""
+                           --- Que tipo de pieza de arte desea modificar? ---
+                           
+                           1. Pinturas
+                           2. Esculturas
+                           3. Fotografias
+                           4. Escritos
+                           
+                           """);
+    }
+    public static void menuList(){
+        System.out.println("""
+                           --- Que tipo de pieza de arte desea listar? ---
                            
                            1. Pinturas
                            2. Esculturas
@@ -114,12 +136,48 @@ public class Lab2P2_CarlosEspinal {
                                                 break;
                                             case 2:
                                                 System.out.println("Ingrese el nombre del escultor: ");
+                                                read.nextLine();
+                                                String nome = read.nextLine();
+                                                System.out.println("Ingrese el material principal utilizado para la escultura: ");
+                                                String mat = read.nextLine();
+                                                System.out.println("Ingrese la fecha en que se comenzo a esculpir: ");
+                                                String f3 = read.nextLine();
+                                                String[] f3t = f3.split(f3);
+                                                Date fechae = new Date(Integer.parseInt(f3t[2])-1900, Integer.parseInt(f3t[1])-1, Integer.parseInt(f3t[0]));
+                                                System.out.println("Ingrese el departamento en que se encuentra la escultura: ");
+                                                String depart = read.nextLine();
+                                                
+                                                esculturas.add(new Escultura(nome,mat,fechae,depart));
                                                 
                                                 break;
                                             case 3:
+                                                System.out.println("Ingrese las dimensiones de la fotografi(De esta manera: NNNNcmxNNNNcm)): ");
+                                                read.nextLine();
+                                                String dim = read.nextLine();
+                                                System.out.println("Ingrese la resolucion de la fotografia (NNNNxNNNN): ");
+                                                String res = read.nextLine();
+                                                System.out.println("Es una fotografia a color? [S/N]: ");
+                                                boolean iscol = false;
+                                                char col = read.nextLine().charAt(0);
+                                                if (col == 's' || col == 'S') {
+                                                    iscol = true;
+                                                } else{
+                                                    iscol = false;
+                                                }
+                                                
+                                                fotografias.add(new Fotografia(dim,res,iscol));
                                                 
                                                 break;
                                             case 4:
+                                                System.out.println("Ingrese el total de palabras del escrito: ");
+                                                int totpal = read.nextInt();
+                                                System.out.println("Ingrese la epoca en la que fue escrito: ");
+                                                read.nextLine();
+                                                String ep = read.nextLine();
+                                                System.out.println("Ingrese genero literario: ");
+                                                String gen = read.nextLine();
+                                                System.out.println("Ingrese un autor: ");
+                                                String auth = read.nextLine();
                                                 
                                                 break;
                                         }
@@ -130,6 +188,27 @@ public class Lab2P2_CarlosEspinal {
                                     
                                     break;
                                 case 3:
+                                    menuList();
+                                    int artalist = read.nextInt();
+                                    switch (artalist) {
+                                        case 1:
+                                            for (Pintura pne : pinturas) {
+                                                System.out.println(pne);
+                                                System.out.println("");
+                                            }
+                                            break;
+                                        case 2:
+                                            
+                                            break;
+                                        case 3:
+                                            
+                                            break;
+                                        case 4:
+                                            
+                                            break;
+                                        default:
+                                            throw new AssertionError();
+                                    }
                                     
                                     break;
                                 case 4:
