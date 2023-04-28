@@ -65,6 +65,19 @@ public class Lab2P2_CarlosEspinal {
                            
                            """);
     }
+    public static void menuDel(){
+        System.out.println("""
+                           --- Que tipo de pieza de arte desea eliminar? ---
+                           
+                           1. Pinturas
+                           2. Esculturas
+                           3. Fotografias
+                           4. Escritos
+                           
+                           """);
+    }
+    
+    
     
     public static void main(String[] args) {
         int o1 = 0;
@@ -179,12 +192,18 @@ public class Lab2P2_CarlosEspinal {
                                                 System.out.println("Ingrese un autor: ");
                                                 String auth = read.nextLine();
                                                 
+                                                escritos.add(new Escritos(totpal,ep,gen,auth));
+                                                
                                                 break;
                                         }
+                                    } else{
+                                        System.out.println("El usuario no tiene derechos ");
                                     }
                                     
                                     break;
                                 case 2:
+                                    
+                                    
                                     
                                     break;
                                 case 3:
@@ -198,21 +217,54 @@ public class Lab2P2_CarlosEspinal {
                                             }
                                             break;
                                         case 2:
-                                            
+                                            for (Escultura escultura : esculturas) {
+                                                System.out.println(escultura);
+                                                System.out.println("");
+                                            }
                                             break;
                                         case 3:
-                                            
+                                            for (Fotografia fotografia : fotografias) {
+                                                System.out.println(fotografia);
+                                                System.out.println("");
+                                            }
                                             break;
                                         case 4:
-                                            
+                                            for (Escritos escrito : escritos) {
+                                                System.out.println(escrito);
+                                                System.out.println("");
+                                            }
                                             break;
-                                        default:
-                                            throw new AssertionError();
+                                        
                                     }
                                     
                                     break;
                                 case 4:
-                                    
+                                    if (adm == true) {
+                                        menuDel();
+                                        int odel = read.nextInt();
+                                        switch (odel) {
+                                            case 1:
+                                                System.out.println("Ingrese el index de la pintura a eliminar: ");
+                                                int indpin = read.nextInt();
+                                                pinturas.remove(indpin);
+                                                break;
+                                            case 2:
+                                                System.out.println("Ingrese el index de la escultura a eliminar: ");
+                                                int indes = read.nextInt();
+                                                esculturas.remove(indes);
+                                                break;
+                                            case 3:
+                                                System.out.println("Ingrese el index de la fotografia a eliminar: ");
+                                                int indfot = read.nextInt();
+                                                fotografias.remove(indfot);
+                                                break;
+                                            case 4:
+                                                System.out.println("Ingrese el index de la escritura a eliminar: ");
+                                                int indesc = read.nextInt();
+                                                escritos.remove(indesc);
+                                                break;
+                                        }
+                                    }
                                     break;
                                     
                                 case 5:
